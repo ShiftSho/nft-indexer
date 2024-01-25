@@ -1,27 +1,20 @@
 :root {
-  font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
-  font-size: 16px;
-  line-height: 24px;
-  font-weight: 400;
+  --dark-cobalt: #193549;
+  --neon-green: #39ff14;
+  --text-glow: 0 0 2px var(--neon-green), 0 0 3px var(--neon-green), 0 0 15px var(--neon-green);
+  --button-hover-glow: 0 0 20px var(--neon-green), 0 0 30px var(--neon-green);
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  font-family: 'Orbitron', sans-serif; /* Consider using a futuristic font like Orbitron */
+  color-scheme: dark;
+  color: var(--neon-green);
+  background-color: var(--dark-cobalt);
 
+  text-shadow: var(--text-glow);
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
-}
-
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
 }
 
 body {
@@ -30,41 +23,76 @@ body {
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
+  background: radial-gradient(circle at 15% 50%, rgba(4, 4, 26, 0.5), transparent),
+              radial-gradient(circle at 85% 20%, rgba(10, 150, 103, 0.3), transparent),
+              var(--dark-cobalt);
+}
+
+a {
+  font-weight: 500;
+  color: var(--neon-green);
+  text-decoration: inherit;
+}
+a:hover {
+  color: rgba(57, 255, 20, 0.8);
+  text-shadow: var(--text-glow);
 }
 
 h1 {
   font-size: 3.2em;
   line-height: 1.1;
+  text-shadow: var(--text-glow);
 }
 
 button {
   border-radius: 8px;
-  border: 1px solid transparent;
+  border: 1px solid var(--neon-green); /* Neon green border */
   padding: 0.6em 1.2em;
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
-  background-color: #1a1a1a;
+  color: var(--neon-green); /* Neon green text color */
+  background-color: #111; /* Almost black background color */
   cursor: pointer;
-  transition: border-color 0.25s;
+  transition: all 0.25s;
+  text-shadow: var(--text-glow); /* Text glow effect */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Subtle shadow for depth, adjust as needed */
 }
+
 button:hover {
-  border-color: #646cff;
+  background-color: var(--neon-green);
+  color: var(--dark-cobalt);
+  box-shadow: var(--button-hover-glow);
 }
-button:focus,
-button:focus-visible {
+button:focus, button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
+}
+
+input {
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 1px solid var(--neon-green);
+  color: var(--neon-green);
+  padding: 10px;
+  font-size: 18px;
+  border-radius: 5px;
+  transition: background-color 0.25s, box-shadow 0.25s;
+  box-shadow: var(--text-glow);
+}
+input:focus {
+  background-color: rgba(255, 255, 255, 0.2);
+  box-shadow: var(--button-hover-glow);
 }
 
 @media (prefers-color-scheme: light) {
   :root {
-    color: #213547;
-    background-color: #ffffff;
+    --dark-cobalt: #1a1a1a;
+    --neon-green: #39ff14;
   }
-  a:hover {
-    color: #747bff;
+  body {
+    background: var(--dark-cobalt);
   }
   button {
-    background-color: #f9f9f9;
+    background-color: var(--neon-green);
+    color: var(--dark-cobalt);
   }
 }
